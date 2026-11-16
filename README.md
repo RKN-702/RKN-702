@@ -1,5 +1,9 @@
 <!-- skin:start -->
-<img src="./skins/custom-security.svg" width="100%" alt="RKN-702 Cybersecurity Profile Skin">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./skins/frost-night.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./skins/frost-night.svg">
+  <img src="./skins/frost-night.svg" width="100%" alt="RKN-702 on GitHub: public repositories, contribution activity and languages.">
+</picture>
 <!-- skin:end -->
 
 <p align="center">
