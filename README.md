@@ -7,6 +7,10 @@
 <!-- skin:end -->
 
 <p align="center">
+  <img src="assets/profile-avatar.png" width="140" height="140" style="border-radius: 50%;" alt="RKN-702 profile picture" />
+</p>
+
+<p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&duration=4000&pause=1000&color=FF4500&center=true&vCenter=true&width=750&lines=RKN-702;Penetration+Tester+%7C+Cybersecurity+Researcher;Bug+Bounty+Hunter+%7C+Web+Security+Specialist" alt="Typing SVG" />
 </p>
 
