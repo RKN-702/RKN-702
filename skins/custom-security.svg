@@ -1,192 +1,220 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="RKN-702 Cybersecurity Profile Interactive Skin">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="RKN-702 Cybersecurity Interactive Profile Skin">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="bgMain" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#020205"/>
-      <stop offset="40%" stop-color="#0a0a1a"/>
-      <stop offset="100%" stop-color="#020205"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#010103"/>
+      <stop offset="30%" stop-color="#0b0b1a"/>
+      <stop offset="70%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#010103"/>
     </linearGradient>
 
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#16162e"/>
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#0f0f1a"/>
       <stop offset="100%" stop-color="#0a0a1a"/>
     </linearGradient>
 
-    <linearGradient id="neonSweep" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="neonBand" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="transparent"/>
-      <stop offset="50%" stop-color="#00ffff"/>
+      <stop offset="20%" stop-color="#00ffff"/>
+      <stop offset="40%" stop-color="#ff00de"/>
+      <stop offset="60%" stop-color="#00ffff"/>
+      <stop offset="80%" stop-color="#ffff00"/>
       <stop offset="100%" stop-color="transparent"/>
     </linearGradient>
 
     <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#00ffff"/>
-      <stop offset="70%" stop-color="rgba(0,255,255,0.1)"/>
+      <stop offset="40%" stop-color="rgba(0,255,255,0.3)"/>
       <stop offset="100%" stop-color="transparent"/>
     </radialGradient>
 
     <!-- Filters -->
-    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
 
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Grid Pattern -->
-    <pattern id="techGrid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,255,255,0.06)" stroke-width="1"/>
+    <!-- Patterns -->
+    <pattern id="circuitGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,255,255,0.08)" stroke-width="1"/>
     </pattern>
 
-    <!-- Clipping paths -->
-    <clipPath id="shieldClip">
-      <path d="M 60 0 C 25 0 0 22 0 55 L 0 145 C 0 195 45 235 65 255 L 65 255 C 85 235 130 195 130 145 L 130 55 C 130 22 95 0 60 0 Z"/>
+    <pattern id="dotMatrix" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1" fill="#00ffff" opacity="0.3"/>
+    </pattern>
+
+    <clipPath id="shieldShape">
+      <path d="M 60 -10 C 25 -10 0 10 0 45 L 0 155 C 0 210 55 250 75 270 L 75 270 C 95 250 150 210 150 155 L 150 45 C 150 10 95 -10 60 -10 Z"/>
     </clipPath>
   </defs>
 
   <style>
-    .anim-pulse { animation: pulse 2.5s ease-in-out infinite; }
-    .anim-spin { animation: spin 12s linear infinite; }
-    .anim-fade { animation: fadeFloat 4s ease-in-out infinite alternate; }
-    .anim-scan { animation: scanMove 5s linear infinite; }
-    .anim-glow { animation: neonGlow 2s ease-in-out infinite; }
-    .anim-blink { animation: blinkFast 0.8s step-end infinite; }
-    .frame { animation: frameGlow 3s ease-in-out infinite; }
+    .anim-pulse { animation: pulse 3s ease-in-out infinite; }
+    .anim-spin { animation: spin 15s linear infinite; }
+    .anim-float { animation: float 5s ease-in-out infinite alternate; }
+    .anim-scan { animation: scan 6s linear infinite; }
+    .anim-glow { animation: neonGlow 2.5s ease-in-out infinite; }
+    .anim-blink { animation: blink 1s step-end infinite; }
+    .anim-frame { animation: framePulse 4s ease-in-out infinite; }
 
-    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.03); opacity: 0.85; } }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.04); opacity: 0.8; } }
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes fadeFloat { from { transform: translateY(0px); opacity: 0.7; } to { transform: translateY(-8px); opacity: 1; } }
-    @keyframes scanMove { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-    @keyframes neonGlow { 0%,100% { filter: drop-shadow(0 0 6px #00ffff); } 50% { filter: drop-shadow(0 0 18px #00ffff) drop-shadow(0 0 35px #ff00de); } }
-    @keyframes blinkFast { 50% { opacity: 0.3; } }
-    @keyframes frameGlow { 0%,100% { stroke-opacity: 0.4; } 50% { stroke-opacity: 0.9; } }
+    @keyframes float { from { transform: translateY(0px); } to { transform: translateY(-10px); } }
+    @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+    @keyframes neonGlow { 0%,100% { filter: drop-shadow(0 0 8px #00ffff); } 50% { filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 40px #ff00de); } }
+    @keyframes blink { 50% { opacity: 0.2; } }
+    @keyframes framePulse { 0%,100% { stroke-opacity: 0.3; } 50% { stroke-opacity: 0.8; } }
 
-    .text-main { font-family: 'Segoe UI', 'Roboto', sans-serif; font-weight: 900; letter-spacing: 6px; }
-    .text-sub { font-family: 'Courier New', monospace; font-weight: 700; letter-spacing: 2px; }
-    .text-small { font-family: 'Courier New', monospace; font-size: 13px; }
+    .title { font-family: 'Segoe UI', 'Roboto', sans-serif; font-weight: 900; letter-spacing: 8px; }
+    .subtitle { font-family: 'Courier New', monospace; font-weight: 700; letter-spacing: 3px; }
+    .small { font-family: 'Courier New', monospace; }
   </style>
 
   <!-- ========== BACKGROUND ========== -->
-  <rect width="1200" height="420" fill="url(#bgMain)"/>
+  <rect width="1200" height="420" fill="url(#bgGrad)"/>
 
-  <!-- Animated Tech Grid -->
-  <rect width="1200" height="420" fill="url(#techGrid)">
-    <animateTransform attributeName="transform" type="translate" from="0 0" to="50 50" dur="10s" repeatCount="indefinite"/>
+  <!-- Animated Circuit Grid -->
+  <rect width="1200" height="420" fill="url(#circuitGrid)">
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="40 40" dur="12s" repeatCount="indefinite"/>
   </rect>
 
-  <!-- Animated Scanline Overlay -->
-  <rect class="anim-scan" width="1200" height="3" fill="#00ffff" opacity="0.35"/>
+  <!-- Dot Matrix Overlay -->
+  <rect width="1200" height="420" fill="url(#dotMatrix)" opacity="0.4"/>
+
+  <!-- Animated Scanline -->
+  <rect class="anim-scan" width="1200" height="4" fill="#00ffff" opacity="0.3"/>
 
   <!-- ========== FRAME ========== -->
-  <rect x="35" y="35" width="1130" height="350" fill="none" stroke="url(#neonSweep)" stroke-width="2.5" opacity="0.5" rx="18" class="frame"/>
-  <rect x="35" y="35" width="1130" height="350" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.15" rx="18"/>
+  <rect x="30" y="30" width="1140" height="360" fill="none" stroke="url(#neonBand)" stroke-width="3" opacity="0.6" rx="20" class="anim-frame"/>
+  <rect x="30" y="30" width="1140" height="360" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1" rx="20"/>
 
   <!-- Corner Brackets -->
-  <g stroke="#00ffff" stroke-width="3" opacity="0.9" class="anim-fade">
-    <line x1="60" y1="60" x2="150" y2="60"/>
-    <line x1="60" y1="60" x2="60" y2="150"/>
-    <line x1="1140" y1="60" x2="1050" y2="60"/>
-    <line x1="1140" y1="60" x2="1140" y2="150"/>
-    <line x1="60" y1="360" x2="150" y2="360"/>
-    <line x1="60" y1="360" x2="60" y2="270"/>
-    <line x1="1140" y1="360" x2="1050" y2="360"/>
-    <line x1="1140" y1="360" x2="1140" y2="270"/>
+  <g stroke="#00ffff" stroke-width="3" opacity="0.95" class="anim-float">
+    <line x1="60" y1="60" x2="170" y2="60"/>
+    <line x1="60" y1="60" x2="60" y2="170"/>
+    <line x1="1140" y1="60" x2="1030" y2="60"/>
+    <line x1="1140" y1="60" x2="1140" y2="170"/>
+    <line x1="60" y1="360" x2="170" y2="360"/>
+    <line x1="60" y1="360" x2="60" y2="250"/>
+    <line x1="1140" y1="360" x2="1030" y2="360"/>
+    <line x1="1140" y1="360" x2="1140" y2="250"/>
   </g>
 
   <!-- ========== CENTRAL SHIELD ========== -->
-  <g transform="translate(540, 90)" class="anim-pulse anim-glow" filter="url(#softGlow)">
-    <!-- Outer shield shape -->
-    <path d="M 60 -10 C 25 -10 0 12 0 48 L 0 150 C 0 205 50 245 75 265 L 75 265 C 100 245 150 205 150 150 L 150 48 C 150 12 95 -10 60 -10 Z"
+  <g transform="translate(540, 80)" class="anim-pulse anim-glow" filter="url(#glow)" clip-path="url(#shieldShape)">
+    <!-- Shield Outer -->
+    <path d="M 60 -10 C 25 -10 0 10 0 48 L 0 155 C 0 210 55 250 75 270 L 75 270 C 95 250 150 210 150 155 L 150 48 C 150 10 95 -10 60 -10 Z"
           fill="url(#shieldGrad)" stroke="#00ffff" stroke-width="3" opacity="0.95"/>
 
-    <!-- Inner shield detail -->
-    <path d="M 60 5 C 30 5 8 22 8 45 L 8 115 C 8 150 35 185 55 200 L 55 200 C 75 185 102 150 102 115 L 102 45 C 102 22 80 5 60 5 Z"
-          fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7"/>
+    <!-- Shield Inner Detail -->
+    <path d="M 60 2 C 30 2 8 22 8 48 L 8 120 C 8 155 35 190 55 205 L 55 205 C 75 190 102 155 102 120 L 102 48 C 102 22 80 2 60 2 Z"
+          fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7" class="anim-glow"/>
 
     <!-- Digital Lock -->
-    <g transform="translate(42, 105)">
-      <!-- Lock body -->
+    <g transform="translate(42, 100)">
+      <!-- Lock Body -->
       <rect x="18" y="30" width="24" height="22" fill="#00ffff" rx="5" opacity="0.95" class="anim-blink"/>
       <!-- Shackle -->
       <path d="M 30 30 C 30 20 38 10 48 10 C 58 10 58 20 58 30" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" class="anim-spin"/>
       <!-- Keyhole -->
-      <circle cx="42" cy="40" r="3.5" fill="#020205"/>
+      <circle cx="42" cy="41" r="4" fill="#010103"/>
     </g>
 
-    <!-- Shield core glow -->
-    <circle cx="60" cy="95" r="28" fill="url(#coreGlow)" opacity="0.4"/>
+    <!-- Core Glow -->
+    <circle cx="60" cy="95" r="32" fill="url(#coreGlow)" opacity="0.35"/>
   </g>
 
   <!-- ========== HEADER ========== -->
-  <text x="600" y="55" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="900" letter-spacing="8" class="anim-glow">RKN-702</text>
-  <text x="600" y="92" text-anchor="middle" fill="#00ffff" font-family="'Courier New', monospace" font-size="16" font-weight="bold" letter-spacing="3">CYBERSECURITY RESEARCHER &amp; PENETRATION TESTER</text>
-  <text x="600" y="115" text-anchor="middle" fill="#888" font-family="'Courier New', monospace" font-size="12" letter-spacing="1">WEB SECURITY &bull; BUG BOUNTY HUNTER &bull; SAUDI ARABIA</text>
+  <text x="600" y="55" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="900" letter-spacing="10" class="anim-glow">RKN-702</text>
+  <text x="600" y="95" text-anchor="middle" fill="#00ffff" font-family="'Courier New', monospace" font-size="17" font-weight="bold" letter-spacing="4" class="anim-float">CYBERSECURITY RESEARCHER &amp; PENETRATION TESTER</text>
+  <text x="600" y="120" text-anchor="middle" fill="#aaaaaa" font-family="'Courier New', monospace" font-size="13" letter-spacing="2">WEB SECURITY &bull; BUG BOUNTY HUNTER &bull; DAMMAM, SAUDI ARABIA</text>
 
   <!-- ========== STATUS BAR ========== -->
-  <g transform="translate(90, 150)">
-    <rect x="0" y="0" width="320" height="45" fill="#0d0d1a" stroke="#00ffff" stroke-width="1" rx="8" opacity="0.6"/>
-    <circle cx="18" cy="22" r="6" fill="#00ff00" class="anim-pulse" filter="url(#neon)"/>
-    <text x="34" y="28" fill="#00ff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold">SYSTEM SECURE</text>
-    <text x="190" y="28" fill="#ffff00" font-family="'Courier New', monospace" font-size="13" font-weight="bold" class="anim-blink">● ACTIVE MONITORING</text>
+  <g transform="translate(80, 160)">
+    <rect x="0" y="0" width="340" height="50" fill="#0d0d1a" stroke="#00ffff" stroke-width="1.5" rx="10" opacity="0.7"/>
+    <circle cx="20" cy="25" r="7" fill="#00ff00" class="anim-pulse" filter="url(#neonGlow)"/>
+    <text x="38" y="31" fill="#00ff00" font-family="'Courier New', monospace" font-size="14" font-weight="bold">SYSTEM SECURE</text>
+    <text x="200" y="31" fill="#ffff00" font-family="'Courier New', monospace" font-size="14" font-weight="bold" class="anim-blink">● LIVE MONITORING</text>
   </g>
 
-  <!-- ========== BUG BOUNTY CARDS ========== -->
-  <text x="90" y="210" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" letter-spacing="2">🎯 BUG BOUNTY PLATFORMS</text>
+  <!-- ========== BUG BOUNTY PLATFORMS ========== -->
+  <text x="80" y="220" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="bold" letter-spacing="3">🎯 BUG BOUNTY PLATFORMS</text>
 
-  <g transform="translate(90, 225)">
+  <g transform="translate(80, 235)">
     <!-- Card 1: Bugbounty.sa -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="250" height="75" fill="#0d0d1a" stroke="#00ffff" stroke-width="1.5" rx="10" opacity="0.85" class="anim-fade"/>
-      <text x="18" y="26" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">bugbounty.sa</text>
+      <rect x="0" y="0" width="240" height="70" fill="#0d0d1a" stroke="#00ffff" stroke-width="1.5" rx="10" opacity="0.85" class="anim-float"/>
+      <text x="18" y="25" fill="#00ffff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">bugbounty.sa</text>
       <text x="18" y="50" fill="#cccccc" font-family="'Courier New', monospace" font-size="12">/profile/rkn_702</text>
     </g>
 
     <!-- Card 2: HackenProof -->
-    <g transform="translate(270, 0)">
-      <rect x="0" y="0" width="250" height="75" fill="#0d0d1a" stroke="#00d9ff" stroke-width="1.5" rx="10" opacity="0.85" class="anim-fade"/>
-      <text x="18" y="26" fill="#00d9ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">HackenProof</text>
+    <g transform="translate(260, 0)">
+      <rect x="0" y="0" width="240" height="70" fill="#0d0d1a" stroke="#00d9ff" stroke-width="1.5" rx="10" opacity="0.85" class="anim-float"/>
+      <text x="18" y="25" fill="#00d9ff" font-family="'Courier New', monospace" font-size="14" font-weight="bold">HackenProof</text>
       <text x="18" y="50" fill="#cccccc" font-family="'Courier New', monospace" font-size="12">/hackers/rkn702</text>
     </g>
 
     <!-- Card 3: Intigriti -->
-    <g transform="translate(540, 0)">
-      <rect x="0" y="0" width="250" height="75" fill="#0d0d1a" stroke="#ff6b00" stroke-width="1.5" rx="10" opacity="0.85" class="anim-fade"/>
-      <text x="18" y="26" fill="#ff6b00" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Intigriti</text>
+    <g transform="translate(520, 0)">
+      <rect x="0" y="0" width="240" height="70" fill="#0d0d1a" stroke="#ff6b00" stroke-width="1.5" rx="10" opacity="0.85" class="anim-float"/>
+      <text x="18" y="25" fill="#ff6b00" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Intigriti</text>
       <text x="18" y="50" fill="#cccccc" font-family="'Courier New', monospace" font-size="12">/researcher/rkn_702</text>
     </g>
 
     <!-- Card 4: Bugcrowd -->
-    <g transform="translate(810, 0)">
-      <rect x="0" y="0" width="250" height="75" fill="#0d0d1a" stroke="#ef476f" stroke-width="1.5" rx="10" opacity="0.85" class="anim-fade"/>
-      <text x="18" y="26" fill="#ef476f" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Bugcrowd</text>
+    <g transform="translate(780, 0)">
+      <rect x="0" y="0" width="240" height="70" fill="#0d0d1a" stroke="#ef476f" stroke-width="1.5" rx="10" opacity="0.85" class="anim-float"/>
+      <text x="18" y="25" fill="#ef476f" font-family="'Courier New', monospace" font-size="14" font-weight="bold">Bugcrowd</text>
       <text x="18" y="50" fill="#cccccc" font-family="'Courier New', monospace" font-size="12">/h/rkn_702</text>
     </g>
   </g>
 
-  <!-- ========== SKILLS ========== -->
-  <g transform="translate(90, 355)">
-    <text x="0" y="0" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="18" font-weight="bold" letter-spacing="1">⚡ WEB SECURITY SKILLS</text>
-    <text x="0" y="22" fill="#88ccff" font-family="'Courier New', monospace" font-size="12" font-weight="bold">OWASP Top 10 &bull; XSS &bull; SQLi &bull; IDOR &bull; SSRF &bull; API Security &bull; Burp Suite &bull; Recon</text>
+  <!-- ========== SKILLS SECTION ========== -->
+  <g transform="translate(80, 350)">
+    <text x="0" y="0" fill="#ffffff" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" letter-spacing="2">⚡ WEB SECURITY SKILLS</text>
+    <text x="0" y="22" fill="#88ccff" font-family="'Courier New', monospace" font-size="12" font-weight="bold">
+      OWASP Top 10 &bull; XSS &bull; SQL Injection &bull; IDOR &bull; SSRF &bull; CSRF &bull; Race Conditions &bull; API Security &bull; Burp Suite &bull; Recon
+    </text>
   </g>
 
-  <!-- ========== DECORATIVE BINARY ========== -->
-  <g fill="#00ffff" opacity="0.15" font-family="'Courier New', monospace" font-size="11">
-    <text x="940" y="290">01001000</text>
-    <text x="940" y="305">01101001</text>
-    <text x="940" y="320">01100101</text>
-    <text x="940" y="335">01110011</text>
-    <text x="940" y="350">01010011</text>
-    <text x="940" y="365">01100101</text>
-    <text x="940" y="380">01100011</text>
-    <text x="940" y="395">01110101</text>
-    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -20" dur="6s" repeatCount="indefinite"/>
+  <!-- ========== DECORATIVE ELEMENTS ========== -->
+  <!-- Binary Code Animation -->
+  <g fill="#00ffff" opacity="0.12" font-family="'Courier New', monospace" font-size="11">
+    <text x="900" y="300">01001000</text>
+    <text x="900" y="315">01101001</text>
+    <text x="900" y="330">01100101</text>
+    <text x="900" y="345">01110011</text>
+    <text x="900" y="360">01010011</text>
+    <text x="900" y="375">01100101</text>
+    <text x="900" y="390">01100011</text>
+    <text x="900" y="405">01110101</text>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -20" dur="7s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Connection Dots -->
+  <g fill="#00ffff" opacity="0.4">
+    <circle cx="100" cy="300" r="3"/>
+    <circle cx="140" cy="290" r="2"/>
+    <circle cx="180" cy="305" r="3"/>
+    <circle cx="1100" cy="300" r="3"/>
+    <circle cx="1060" cy="290" r="2"/>
+    <circle cx="1020" cy="305" r="3"/>
+    <line x1="100" y1="300" x2="140" y2="290" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
+    <line x1="140" y1="290" x2="180" y2="305" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
+    <line x1="1100" y1="300" x2="1060" y2="290" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
+    <line x1="1060" y1="290" x2="1020" y2="305" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
   </g>
 
   <!-- ========== FOOTER ========== -->
-  <text x="600" y="405" text-anchor="middle" fill="#444" font-family="'Courier New', monospace" font-size="11" letter-spacing="1">ETHICAL HACKING &bull; RESPONSIBLE DISCLOSURE &bull; SECURE THE WEB</text>
+  <text x="600" y="412" text-anchor="middle" fill="#444" font-family="'Courier New', monospace" font-size="11" letter-spacing="1">ETHICAL HACKING &bull; RESPONSIBLE DISCLOSURE &bull; SECURE THE WEB</text>
 </svg>
