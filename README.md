@@ -1,9 +1,5 @@
 <!-- skin:start -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./skins/custom-security.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./skins/custom-security.svg">
-  <img src="./skins/custom-security.svg" width="100%" alt="RKN-702 Cybersecurity Profile Skin">
-</picture>
+<img src="./skins/custom-security.png" width="100%" alt="RKN-702 Cybersecurity Profile Skin">
 <!-- skin:end -->
 
 <p align="center">
