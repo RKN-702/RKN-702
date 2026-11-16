@@ -1,5 +1,5 @@
 <!-- skin:start -->
-<img src="./skins/custom-security.png" width="100%" alt="RKN-702 Cybersecurity Profile Skin">
+<img src="./skins/custom-security.svg" width="100%" alt="RKN-702 Cybersecurity Profile Skin">
 <!-- skin:end -->
 
 <p align="center">
